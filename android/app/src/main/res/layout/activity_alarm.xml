@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#090E1A">
+
+    <!-- Bottom Actions Section: Anchored cleanly at the bottom -->
+    <LinearLayout
+        android:id="@+id/layoutBottomSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="36dp"
+        android:paddingTop="12dp">
+
+        <!-- Portal Link Button: Sleek Glass Capsule -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOpenPortal"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Open Registration Portal  ↗"
+            android:background="@drawable/bg_portal_btn"
+            android:textColor="#38BDF8"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-medium"
+            android:stateListAnimator="@null"
+            android:layout_marginBottom="14dp" />
+
+        <!-- Minimal Slider Hint -->
+        <TextView
+            android:id="@+id/tvSliderHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Slide left to cancel   •   Slide right to snooze"
+            android:textColor="#64748B"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.03"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Large Dual-Action Horizontal Slider (86dp) -->
+        <FrameLayout
+            android:id="@+id/layoutSliderContainer"
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:background="@drawable/slider_track_bg"
+            android:padding="6dp">
+
+            <!-- Background Track Action Labels -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <!-- Left Action: Cancel All Alarms -->
+                <TextView
+                    android:id="@+id/tvSliderLeftLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="22dp"
+                    android:paddingEnd="20dp"
+                    android:singleLine="true"
+                    android:text="‹   CANCEL ALL"
+                    android:textColor="#F87171"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.08" />
+
+                <!-- Right Action: Snooze Alarm -->
+                <TextView
+                    android:id="@+id/tvSliderRightLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|end"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="22dp"
+                    android:singleLine="true"
+                    android:text="SNOOZE   ›"
+                    android:textColor="#38BDF8"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.08" />
+            </LinearLayout>
+
+            <!-- Center Draggable Thumb Handle (74dp x 74dp) -->
+            <FrameLayout
+                android:id="@+id/layoutSliderThumb"
+                android:layout_width="74dp"
+                android:layout_height="74dp"
+                android:layout_gravity="center"
+                android:background="@drawable/slider_thumb_bg"
+                android:elevation="8dp">
+
+                <ImageView
+                    android:id="@+id/ivThumbIcon"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_slider_chevrons"
+                    android:contentDescription="Slide Handle" />
+            </FrameLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- Center Content Section: Balanced and Vertically Centered -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layoutBottomSection"
+        android:layout_alignParentTop="true"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="32dp"
+            android:paddingBottom="24dp">
+
+            <!-- Alarm Bell in Concentric Halo -->
+            <FrameLayout
+                android:id="@+id/layoutAlarmHalo"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/bg_alarm_icon_halo"
+                android:layout_marginBottom="18dp">
+
+                <ImageView
+                    android:id="@+id/ivAlarmIcon"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_alarm_bell"
+                    android:contentDescription="Alarm Icon" />
+            </FrameLayout>
+
+            <!-- Stage Pill Banner -->
+            <TextView
+                android:id="@+id/tvStageBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 HOURS BEFORE DEADLINE"
+                android:textColor="#FDE68A"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.08"
+                android:background="@drawable/bg_stage_banner"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginBottom="14dp" />
+
+            <!-- Company Name -->
+            <TextView
+                android:id="@+id/tvCompanyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="COMPANY NAME"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:letterSpacing="0.01"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Metadata Chips: Package Badge + Deadline -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="18dp">
+
+                <!-- Package / LPA Badge -->
+                <TextView
+                    android:id="@+id/tvPackageBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹ 24 LPA"
+                    android:textColor="#34D399"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:background="@drawable/package_badge_alarm_bg"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:layout_marginEnd="8dp"
+                    android:visibility="gone" />
+
+                <!-- Formatted Deadline Pill -->
+                <TextView
+                    android:id="@+id/tvDeadlineInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Today at 05:00 PM"
+                    android:textColor="#FBBF24"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:background="@drawable/bg_deadline_chip"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <!-- Message Card in Dark Glass -->
+            <LinearLayout
+                android:id="@+id/layoutRawCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_description_card"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PLACEMENT NOTICE"
+                    android:textColor="#64748B"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.08"
+                    android:layout_marginBottom="6dp" />
+
+                <TextView
+                    android:id="@+id/tvRawDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="#CBD5E1"
+                    android:textSize="13sp"
+                    android:lineSpacingMultiplier="1.3"
+                    android:maxLines="5" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
